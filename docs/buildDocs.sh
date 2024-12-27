@@ -28,7 +28,7 @@ python3 -m pip list
   
 pwd
 ls -lah
-git config --global --add safe.directory /__w/py4web-doc/py4web-doc
+git config --global --add safe.directory /__w/test-tutorial/test-tutorial
 export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
   
 # make a new temp dir which will be our GitHub Pages docroot

@@ -17,7 +17,7 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-project = 'py4web'
+project = 'tutorial-aspdac2025'
 copyright = '2020, BSD-3-Clause License'
 author = 'Massimo DiPierro'
 

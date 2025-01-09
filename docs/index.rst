@@ -4,9 +4,12 @@ AHS: An EDA toolbox for Agile Chip Front-end Design
 
 
 .. note::
-   **Important Update!**
-   We have uploaded the handout materials for the tutorial, including environment setup instructions and the reading materials for the frameworks to be introduced in the tutorial. Please refer to :ref:`Handout Materials<handout materials>` for more details.
+    **Important Update!**
 
+    We have uploaded the handout materials for the tutorial, including environment setup instructions and the reading materials for the frameworks to be introduced in the tutorial. Please refer to :ref:`Handout Materials<handout materials>` for more details.
+    
+    If you have any questions, especially about environment setup, please contact `Youwei Xiao (shallwe@pku.edu.cn) <mailto:shallwe@pku.edu.cn>`_. We will try our best to help you.
+   
 
 Overview
 --------
@@ -15,8 +18,7 @@ Compared to software design, hardware design is more expensive and time-consumin
 
 .. figure:: images/system.png
     :align: center
-    :figwidth: 100%
-
+    :width: 450pt
 
 The tutorial will highlight the methodology and open source tools in AHS for both chip design and verification. From the design perspective, AHS present three ways that use different programming interfaces and target different scenarios, including; 1) a multi-level hardware intermediate representation based high-level synthesis flow, which uses C and C++ as the programming language; 2) an embedded hardware description language, which uses Rust as the programming language; 3) a large language model (LLM)-powered hardware design flow, which uses natural language as the programming language. These three different methodologies exhibit different trade-offs in productivity and PPA (performance, power, and area) for chip design. From the verification perspective, we will present agile simulation and debugging tools, which can check the functional and performance behaviors of the hardware. The attendees will learn the methodology, design automation fundamentals, and software tools of AHS.
 

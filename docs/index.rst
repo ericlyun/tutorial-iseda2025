@@ -64,8 +64,8 @@ Repos and Publications
 
 
 
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: Contents:
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
 
    handout

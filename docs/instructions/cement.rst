@@ -3,7 +3,7 @@ Cement instructions
 
 Introductions on the **cmtrs** embedded language, the **cmtc** compiler and some examples will be presented at the tutorial.
 
-Please read the `documentation <https://docs.rs/cmtrs/latest/cmtrs/>` for the basic concepts and language usage.
+Please read the `documentation <https://docs.rs/cmtrs/latest/cmtrs/>`_ for the basic concepts and language usage.
 
 Position of Cement Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -51,7 +51,7 @@ Simulation with Khronos
 After running an example
 
 .. code:: shell
-
+  
     cd tb/<name_of_example>
     make all
     ./<executable_name>

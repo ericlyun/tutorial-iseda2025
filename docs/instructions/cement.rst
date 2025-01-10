@@ -5,8 +5,8 @@ Introductions on the **cmtrs** embedded language, the **cmtc** compiler and some
 
 Please read the `documentation <https://docs.rs/cmtrs/latest/cmtrs/>`_ for the basic concepts and language usage.
 
-Position of Cement Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cement Example Contents
+^^^^^^^^^^^^^^^^^^^^^^^
 
 The examples are in ``Cement\crates\cmtc\examples`` directory.
 
@@ -15,7 +15,7 @@ We will demonstrate these examples
 
   * ``fn fir3_3()`` shows how to write an FIR with fixed length 3. 
   * ``fn gen_fir()`` shows how to generate FIR with arbitrary length.
-  * ``fn gen_fir_addertree()`` further implement the FIR with an adder tree, which demonstrate the use of ``#[gen_fn]`` to generate hardware recursively.
+  * ``fn gen_fir_addertree()`` further implements the FIR with an adder tree, which demonstrates the use of ``#[gen_fn]`` to generate hardware recursively.
   * ``fn make_tb()`` demonstrates how to write a testbench in ``cmtrs``.
 
 * ``gemm.rs`` General Matrix Multiplication
@@ -27,7 +27,7 @@ We will demonstrate these examples
 * ``gemm_unrolled.rs`` Unrolled gemm
 
   * ``fn mac()`` A multiply-accumulate unit to be used in the GeMM example.
-  * ``fn gemm_unrolled()`` A GeMM unit with ``#factor`` MACs, the inner most loop is unrolled and the memories are partitioned.
+  * ``fn gemm_unrolled()`` A GeMM unit with ``#factor`` MACs, the innermost loop is unrolled and the memories are partitioned.
   * ``fn tb()`` A testbench for gemm_unrolled.
 
 Running Cement Examples

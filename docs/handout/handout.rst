@@ -3,10 +3,12 @@ Handout Materials
 
 We provide handout materials for the tutorial. It includes :ref:`environment setup instructions <environment setup>` and the :ref:`reading materials <reading materials>` for the frameworks to be introduced in the tutorial.
 
+If you have any questions, especially about environment setup, please contact `Youwei Xiao (shallwe@pku.edu.cn) <mailto:shallwe@pku.edu.cn>`_. We will try our best to help you.
+
 Environment Setup
 ^^^^^^^^^^^^^^^^^
 
-We provides two setup methods for the involved frameworks: :ref:`Docker <docker>` and :ref:`local installation <local installation>`. We recommend using Docker to try out the frameworks.
+We provide two setup methods for the involved frameworks: :ref:`Docker <docker>` and :ref:`local installation <local installation>`. We recommend using Docker to try out the frameworks.
 
 Docker
 """""""""""""""""""""""""
@@ -84,7 +86,7 @@ For every framework to be introduced in the tutorial, we provide its open-source
      - Materials
    * - POPA
      - `pku-liang/popa <https://github.com/pku-liang/popa/tree/mlir>`_
-     - `FPGA'24 Paper <https://dl.acm.org/doi/10.1145/3626202.3637566>`_, `FCCM'23 Paper <https://ieeexplore.ieee.org/document/10171577>`_
+     - `FPGA'24 Paper(Lasa) <https://dl.acm.org/doi/10.1145/3626202.3637566>`_, `FCCM'23 Paper <https://ieeexplore.ieee.org/document/10171577>`_
    * - Hector
      - `pku-liang/Hector <https://github.com/pku-liang/Hector/tree/tutorial-aspdac>`_
      - `ICCAD'22 Paper <https://ieeexplore.ieee.org/document/10068908>`_

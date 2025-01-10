@@ -17,7 +17,7 @@ Easiest way: use the built Docker image.
 
 We provide a built Docker image for the tutorial. You can pull it from Docker Hub::
 
-  docker pull uvxiao/ahs-tutorial:aspdac2025
+  docker pull uvxiao/ahs-tutorial:aspdac2026
 
 Then, you can run the following command to start the container::
 

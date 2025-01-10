@@ -68,4 +68,6 @@ Repos and Publications
    :maxdepth: 2
    :caption: Contents:
 
-   handout
+   handout/index
+
+   instructions/index

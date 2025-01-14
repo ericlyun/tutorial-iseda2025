@@ -24,16 +24,16 @@ jobs:
 
       - name: Init git repo for push
         run: |
-          git init docs/_build
-          git -C docs/_build config --local user.email "github-action[bot]@users.noreply.github.com"
-          git -C docs/_build config --local user.name  "github-action[bot]"
-          git -C docs/_build branch -M gh-pages
-          git -C docs/_build add .
-          git -C docs/_build commit -am "Update github pages"
+          git init docs/_build/html
+          git -C docs/_build/html config --local user.email "github-action[bot]@users.noreply.github.com"
+          git -C docs/_build/html config --local user.name  "github-action[bot]"
+          git -C docs/_build/html branch -M gh-pages
+          git -C docs/_build/html add .
+          git -C docs/_build/html commit -am "Update github pages"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          directory: docs/_build
+          directory: docs/_build/html
           branch: gh-pages
           force: true

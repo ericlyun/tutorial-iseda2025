@@ -25,8 +25,8 @@ jobs:
       - name: Init git repo for push
         run: |
           git init docs/_build
-          git -C docs/_build --local user.email "github-action[bot]@users.noreply.github.com"
-          git -C docs/_build --local user.name  "github-action[bot]"
+          git -C docs/_build config --local user.email "github-action[bot]@users.noreply.github.com"
+          git -C docs/_build config --local user.name  "github-action[bot]"
           git -C docs/_build branch -M gh-pages
           git -C docs/_build commit -am "Update github pages"
 

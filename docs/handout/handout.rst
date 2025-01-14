@@ -49,7 +49,7 @@ We also provide a repository for building the Docker image from source. Please r
   docker attach ahs-docker
   # then inside the container:
   cd /root/repos
-  chmod 777 ./install.sh
+  chmod +x ./install.sh
   ./install.sh
   
 .. _ahs-docker: https://github.com/pku-liang/ahs-docker

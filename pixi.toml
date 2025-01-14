@@ -1,5 +1,5 @@
 [project]
-authors = ["KEKE046 <zhoukexing@pku.edu.cn>"]
+authors = ["KEKE046 <zhoukexing@pku.edu.cn>", "Youwei Xiao <shallwexiao@gmail.com>"]
 channels = ["conda-forge"]
 description = "Develop environment and instructions for ASPDAC2025 tutorial"
 name = "tutorial-aspdac2025"

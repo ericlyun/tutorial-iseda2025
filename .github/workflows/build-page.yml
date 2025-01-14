@@ -9,15 +9,15 @@ jobs:
   build-page:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+         fetch-depth: 1
+
       - uses: prefix-dev/setup-pixi@v0.8.0
         with:
           pixi-version: v0.40.0
           cache: true
-
-      - name: Checkout HEAD
-        uses: actions/checkout@v2
-        with:
-         fetch-depth: 1
 
       - name: Build Documents
         run: pixi run build

@@ -2,6 +2,8 @@
 #include <chrono>
 #include <iostream>
 
+double sc_time_stamp() {return 0;}
+
 int main(int argc, char ** argv) {
     auto dut = new VMesh6x6;
     int cnt = atoi(argv[1]);

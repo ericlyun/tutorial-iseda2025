@@ -1,9 +1,11 @@
 Khronos instructions
 --------------------
 
-Khronos is an RTL simulator with cross cycle optimization. It can fuse some redundant memory access to allow better memory locality and speedup RTL simulation.
+Khronos is an RTL simulator with cross cycle optimization.
+It fuses some redundant registers to reduce memory access, allowing better memory locality and RTL simulation speedup.
 
-Khronos takes ``FIRRTL`` and c++ testbench as input, supporting ``cement``, ``hector`` and ``origen``. The following picture gives where khronos is in the AHS workflow:
+Khronos takes ``FIRRTL`` and c++ testbench as its input, generating executable simulator as output.
+The following picture gives where khronos is in the AHS workflow:
 
 .. image:: khronos/khronos-flow.png
     :width: 800
@@ -18,16 +20,16 @@ Compilation Flow:
 
     firtool-ksim --ir-hw $name.fir -o $name.mlir
     ksim $name.mlir -o $name.ll --out-header=$name.h
-    llc-ksim -O2 -filetype=obj $name.ll -o $name.o
+    llc-ksim -O2 --filetype=obj $name.ll -o $name.o
     clang++ -O2 $name.o $name.cpp -o $name
 
 Generate Example Driver:
 
 .. code:: shell
 
-    ksim $name.mlir -o /dev/null --out-driver=$name.cpp
+    ksim $name.mlir --out-driver=$name.cpp -o $name.ll
 
-Show Intermediate Representations
+Generate Intermediate Representations
 
 .. code:: shell
 
@@ -39,10 +41,11 @@ Compilation Workflow of Khronos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The compilation workflow of Khronos is shown in the following figure.
-To call khronos, we use firtool (from CIRCT) to translate ``.fir`` (FIRRTL) file into ``.mlir`` (CIRCT IR) file.
+Khronos core compiler ``ksim`` takes CIRCT IR as input, therefore, we need to convert the FIRRTL file to CIRCT IR first.
+We use firtool (from CIRCT) to translate ``.fir`` (FIRRTL) file into ``.mlir`` (CIRCT IR) file.
 Khronos will take the ``.mlir`` file, generating testbench header ``.h`` and llvm ir ``.ll``.
 The former contains all IO declarations, while the latter contains the logics for simulation.
-Finally, we use ``clang++`` and ``llc`` to compile and link the testbench and generated ``.ll`` file, builing a executable simulator.
+Finally, we use ``llc`` and ``clang++`` to compile and link the testbench and build an executable simulator.
 
 .. image:: khronos/khronos-compilation-flow.png
     :width: 400
@@ -50,8 +53,7 @@ Finally, we use ``clang++`` and ``llc`` to compile and link the testbench and ge
 
 The following instructions gives a simple example to run the overall khronos workflow. 
 
-
-The example FIRRTL file, `simplefir.fir <../rsrc/khronos/simplefir.fir>`_.
+Prepare the example FIRRTL file, `simplefir.fir <../rsrc/khronos/simplefir.fir>`_.
 
 .. literalinclude:: khronos/simplefir.fir
 
@@ -112,7 +114,8 @@ Here is the expected output:
 Intermediate Representations in Khronos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To translate and optimize the RTL design, Khronos has many internal steps with multiple IR forms. The command help of Khronos shows all its IR:
+Khronos has many internal steps with multiple IR forms to translate and optimize the RTL design. 
+In this section, we will introduce each level of Khronos IR. The following help command of Khronos shows its IRs:
 
 .. code:: shell
 
@@ -127,7 +130,7 @@ To translate and optimize the RTL design, Khronos has many internal steps with m
         =llvm         -   LLVM dialect
         =llvmir       -   LLVM IR
 
-As shown in the following picture, these internal IRs are used in ksim's compilation process.
+These IR takes important role during the Khronos compilation flow, the corresponding relationship is demonstrated in the following figure:
 
 .. image:: khronos/khronos-ir.png
     :width: 800
@@ -180,14 +183,15 @@ Use the following commands to run Khronos:
 
     firtool-ksim Mesh6x6.fir --ir-hw -o Mesh6x6.mlir
     ksim Mesh6x6.mlir --out-header=Mesh6x6.h --out-driver=Mesh6x6.cpp -o Mesh6x6.ll
-    clang++ Mesh6x6.cpp Mesh6x6.ll -o Mesh6x6
+    llc-ksim -O2 --relocation-model=dynamic-no-pic --filetype=obj Mesh6x6.ll -o Mesh6x6.o
+    clang++ -O2 Mesh6x6.cpp Mesh6x6.o -o Mesh6x6
 
 Use the following commands to run Verilator:
 
 .. code:: shell
 
     firtool-ksim Mesh6x6.fir -o Mesh6x6.v
-    verilator --cc --exe --build Mesh6x6.v Mesh6x6.tb.cpp
+    verilator --cc --exe --build -CFLAGS "-O2" Mesh6x6.v Mesh6x6.tb.cpp
 
 Run ksim and verilator to compare their performance:
 

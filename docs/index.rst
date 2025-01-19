@@ -34,7 +34,7 @@ We provide both Docker and local setup. See :ref:`Environment Setup<environment 
 Schedule
 --------
 
-The tutorial will be held at Jan 20, 2025 (9:30-12:30)
+The tutorial will be held at Jan 20, 2025 (9:30-12:30). `PPT <../rsrc/Tutorial-upload.pptx>`_
 
 .. list-table:: 
   :header-rows: 1

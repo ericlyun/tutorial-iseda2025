@@ -183,8 +183,8 @@ Use the following commands to run Khronos:
 
     firtool-ksim Mesh6x6.fir --ir-hw -o Mesh6x6.mlir
     ksim Mesh6x6.mlir --out-header=Mesh6x6.h --out-driver=Mesh6x6.cpp -o Mesh6x6.ll
-    llc-ksim -O2 --relocation-model=dynamic-no-pic --filetype=obj Mesh6x6.ll -o Mesh6x6.o
-    clang++ -O2 Mesh6x6.cpp Mesh6x6.o -o Mesh6x6
+    llc-ksim -O2 --relocation-model=dynamic-no-pic --filetype=obj Mesh6x6.ll -o Mesh6x6.ksim.o
+    clang++ -O2 Mesh6x6.cpp Mesh6x6.ksim.o -o Mesh6x6
 
 Use the following commands to run Verilator:
 

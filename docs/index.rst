@@ -34,7 +34,9 @@ We provide both Docker and local setup. See :ref:`Environment Setup<environment 
 Schedule
 --------
 
-The tutorial will be held at Jan 20, 2025 (9:30-12:30). `PPT <rsrc/Tutorial-upload.pptx>`_
+The tutorial will be held at Jan 20, 2025 (9:30-12:30). 
+
+*Hands-on session slides (RECOMMENDED TO DOWNLOAD)*: `slide <rsrc/Tutorial-upload.pptx>`_
 
 .. list-table:: 
   :header-rows: 1
@@ -46,7 +48,7 @@ The tutorial will be held at Jan 20, 2025 (9:30-12:30). `PPT <rsrc/Tutorial-uplo
     - Overview of AHS
     - Yun Liang
   * - 
-    - **Hands-on Sessions**
+    - **Hands-on Sessions** `slide <rsrc/Tutorial-upload.pptx>`_
     - 
   * - 10:20 - 11:05
     - High-level Synthesis POPA, Hector, Hestia (ICCAD'22, FCCM'23, MICRO'24)

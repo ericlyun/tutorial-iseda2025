@@ -10,6 +10,8 @@ AHS: An EDA toolbox for Agile Chip Front-end Design
 
     1.18: *Schedule of the tutorial*
 
+    1.19: *Additional examples for generating hardware with LLM*
+
     If you have any questions, especially about environment setup, please contact `Youwei Xiao (shallwe@pku.edu.cn) <mailto:shallwe@pku.edu.cn>`_. We will try our best to help you.
    
 

@@ -46,24 +46,31 @@ The tutorial will be held at Jan 20, 2025 (9:30-12:30).
   * - Time
     - Agenda
     - Presenter
+    - Slide
   * - 9:30 - 10:20
     - Overview of AHS
     - Yun Liang
+    - `slide <rsrc/tutorial-t2.pdf>`_
   * - 
-    - **Hands-on Sessions** `slide <rsrc/Tutorial-upload.pptx>`_
-    - 
+    - **Hands-on Sessions**
+    -
+    - `slide <rsrc/Tutorial-upload.pptx>`_
   * - 10:20 - 11:05
     - High-level Synthesis POPA, Hector, Hestia (ICCAD'22, FCCM'23, MICRO'24)
     - Ruifan Xu and Xiaochen Hao
+    - 
   * - 11:05 - 11:25
     - Hardware Simulation Khronos (MICRO'23)
     - Kexing Zhou
+    -
   * - 11:25 - 12:10
     - Hardware Description Language Cement (FPGA'24)
     - Youwei Xiao and Zizhang Luo
+    -
   * - 12:10 - 12:30
     - LLM-based Chip Design Origen (ICCAD'24)
     - Fan Cui
+    -
   
 
 Repos and Publications

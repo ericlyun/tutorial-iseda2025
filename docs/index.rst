@@ -1,20 +1,20 @@
 
-AHS: An EDA toolbox for Agile Chip Front-end Design
+Agile Hardware Specialization: A toolbox for Agile Chip Front-end Design
 =======================================================
 
 
-.. note::
-    **Important Updates!**
+.. .. note::
+..     **Important Updates!**
 
-    1.16: *New docker and handout materials*
+..     1.16: *New docker and handout materials*
 
-    1.18: *Schedule of the tutorial*
+..     1.18: *Schedule of the tutorial*
 
-    1.19: *Additional examples for generating hardware with LLM*
+..     1.19: *Additional examples for generating hardware with LLM*
 
-    1.20: *Upload slides* `(1) <rsrc/tutorial-t2.pdf>`_ `(2) <rsrc/Tutorial-upload.pptx>`_
+..     1.20: *Upload slides* `(1) <rsrc/tutorial-t2.pdf>`_ `(2) <rsrc/Tutorial-upload.pptx>`_
 
-    If you have any questions, especially about environment setup, please contact `Youwei Xiao (shallwe@pku.edu.cn) <mailto:shallwe@pku.edu.cn>`_. We will try our best to help you.
+..     If you have any questions, especially about environment setup, please contact `Youwei Xiao (shallwe@pku.edu.cn) <mailto:shallwe@pku.edu.cn>`_. We will try our best to help you.
    
 
 Overview
@@ -36,41 +36,13 @@ We provide both Docker and local setup. See :ref:`Environment Setup<environment 
 Schedule
 --------
 
-The tutorial will be held at Jan 20, 2025 (9:30-12:30). 
+The tutorial will be held at Monday, 31 March 2025 (11:00 CEST - 12:30 CEST). 
 
-*Hands-on session slides (RECOMMENDED TO DOWNLOAD)*: `slide <rsrc/Tutorial-upload.pptx>`_
+Detailed Program
+"""""""""""
 
-.. list-table:: 
-  :header-rows: 1
-
-  * - Time
-    - Agenda
-    - Presenter
-    - Slide
-  * - 9:30 - 10:20
-    - Overview of AHS
-    - Yun Liang
-    - `slide <rsrc/tutorial-t2.pdf>`_
-  * - 
-    - **Hands-on Sessions**
-    -
-    - `slide <rsrc/Tutorial-upload.pptx>`_
-  * - 10:20 - 11:05
-    - High-level Synthesis POPA, Hector, Hestia (ICCAD'22, FCCM'23, MICRO'24)
-    - Ruifan Xu and Xiaochen Hao
-    - 
-  * - 11:05 - 11:25
-    - Hardware Simulation Khronos (MICRO'23)
-    - Kexing Zhou
-    -
-  * - 11:25 - 12:10
-    - Hardware Description Language Cement (FPGA'24)
-    - Youwei Xiao and Zizhang Luo
-    -
-  * - 12:10 - 12:30
-    - LLM-based Chip Design Origen (ICCAD'24)
-    - Fan Cui
-    -
+* Part 1: Lecture (1 hour)
+* Part 2: Hands-on session (30 mins)
   
 
 Repos and Publications
@@ -105,7 +77,7 @@ Repos and Publications
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    handout/index

@@ -1,0 +1,18 @@
+[project]
+authors = ["KEKE046 <zhoukexing@pku.edu.cn>", "Youwei Xiao <shallwexiao@gmail.com>"]
+channels = ["conda-forge"]
+description = "Develop environment and instructions for ASPDAC2025 tutorial"
+name = "tutorial-aspdac2025"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+build = "sphinx-build -b html docs/ docs/_build/html"
+serve = { cmd = "python3 -m http.server -d docs/_build/html", depends-on = ["build"] }
+
+[dependencies]
+python = ">=3.13.1,<4"
+gitpython = ">=3.1.44,<4"
+sphinx-rtd-theme = ">=3.0.1,<4"
+sphinx-tabs = ">=3.4.1,<4"
+setuptools = ">=75.8.0,<76"

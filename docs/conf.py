@@ -69,7 +69,10 @@ master_doc = 'index'
  # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-html_extra_path = ["_static/css"]
+html_extra_path = [
+   "_static/css",
+   '_resources'
+]
 
 html_css_files = ["css/toggle.css"]
 html_js_files = ["js/toggle.js"]
@@ -120,9 +123,9 @@ html_context['version'] = current_version
 # POPULATE LINKS TO OTHER LANGUAGES
 html_context['languages'] = [ ('en', '/' +REPO_NAME+ '/en/' +current_version+ '/') ]
  
-languages = [lang.name for lang in os.scandir('locales') if lang.is_dir()]
-for lang in languages:
-   html_context['languages'].append( (lang, '/' +REPO_NAME+ '/' +lang+ '/' +current_version+ '/') )
+# languages = [lang.name for lang in os.scandir('locales') if lang.is_dir()]
+# for lang in languages:
+   # html_context['languages'].append( (lang, '/' +REPO_NAME+ '/' +lang+ '/' +current_version+ '/') )
  
 # POPULATE LINKS TO OTHER VERSIONS
 html_context['versions'] = list()
@@ -147,10 +150,10 @@ today_fmt = "%B %d, %Y"
 epub_basename = 'target'
  
 html_context['downloads'] = list()
-html_context['downloads'].append( ('pdf', '/' +REPO_NAME+ '/' +current_language+ '/' +current_version+ '/' +REPO_NAME+ '_' +current_language+ '_' +current_version+ '.pdf') )
+# html_context['downloads'].append( ('pdf', '/' +REPO_NAME+ '/' +current_language+ '/' +current_version+ '/' +REPO_NAME+ '_' +current_language+ '_' +current_version+ '.pdf') )
  
-html_context['downloads'].append( ('epub', '/' +REPO_NAME+ '/' +current_language+ '/' +current_version+ '/' +REPO_NAME+ '_' +current_language+ '_' +current_version+ '.epub') )
- 
+# html_context['downloads'].append( ('epub', '/' +REPO_NAME+ '/' +current_language+ '/' +current_version+ '/' +REPO_NAME+ '_' +current_language+ '_' +current_version+ '.epub') )
+
 ##########################
 # "EDIT ON GITHUB" LINKS #
 ##########################

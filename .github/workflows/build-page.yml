@@ -1,0 +1,39 @@
+name: build-page
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+         fetch-depth: 1
+
+      - uses: prefix-dev/setup-pixi@v0.8.0
+        with:
+          pixi-version: v0.40.0
+          cache: true
+
+      - name: Build Documents
+        run: pixi run build
+
+      - name: Init git repo for push
+        run: |
+          git init docs/_build/html
+          git -C docs/_build/html config --local user.email "github-action[bot]@users.noreply.github.com"
+          git -C docs/_build/html config --local user.name  "github-action[bot]"
+          git -C docs/_build/html branch -M gh-pages
+          git -C docs/_build/html add .
+          git -C docs/_build/html commit -am "Update github pages"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          directory: docs/_build/html
+          branch: gh-pages
+          force: true

@@ -19,11 +19,11 @@ Easiest way: use the built Docker image.
 
 We provide a built Docker image for the tutorial. You can pull it from Docker Hub::
 
-  docker pull uvxiao/ahs-tutorial:aspdac2025
+  docker pull uvxiao/ahs-tutorial:date2025
 
 Then, you can run the following command to start the container::
 
-  docker run -it --rm uvxiao/ahs-tutorial:aspdac2025
+  docker run -it --rm uvxiao/ahs-tutorial:date2025
 
 The frameworks are installed inside the ``/root/repos`` directory.
 
@@ -54,7 +54,7 @@ We also provide a repository for building the Docker image from source. Please r
   
 .. _ahs-docker: https://github.com/pku-liang/ahs-docker
 
-The produced Docker image should be the same as the ``uvxiao/ahs-tutorial:aspdac2025`` image.
+The produced Docker image should be the same as the ``uvxiao/ahs-tutorial:date2025`` image.
 
 Local Installation
 """""""""""""""""""""""""
@@ -96,9 +96,6 @@ For every framework to be introduced in the tutorial, we provide its open-source
    * - Cement
      - `pku-liang/Cement <https://github.com/pku-liang/Cement/tree/cmt2>`_
      - `FPGA'24 Paper <https://dl.acm.org/doi/10.1145/3626202.3637561>`_, `Crates.io Package <https://crates.io/crates/cmtrs>`_, `Documentation <https://docs.rs/cmtrs/latest/cmtrs/>`_
-   * - OriGen
-     - `pku-liang/OriGen <https://github.com/pku-liang/OriGen>`_
-     - `ICCAD'24 Paper <https://arxiv.org/abs/2407.16237>`_, `Hugging Face <https://huggingface.co/henryen/OriGen>`_
    * - Khronos (ksim)
      - `pku-liang/ksim <https://github.com/pku-liang/ksim/tree/aspdac24-tutorial>`_
      - `MICRO'23 Paper <https://dl.acm.org/doi/10.1145/3613424.3614301>`_

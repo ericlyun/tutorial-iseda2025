@@ -7,4 +7,3 @@ Tutorial Instructions
 
    cement
    khronos
-   origen

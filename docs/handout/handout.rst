@@ -19,11 +19,11 @@ Easiest way: use the built Docker image.
 
 We provide a built Docker image for the tutorial. You can pull it from Docker Hub::
 
-  docker pull uvxiao/ahs-tutorial:date2025
+  docker pull uvxiao/ahs-tutorial:iseda2025
 
 Then, you can run the following command to start the container::
 
-  docker run -it --rm uvxiao/ahs-tutorial:date2025
+  docker run -it --rm uvxiao/ahs-tutorial:iseda2025
 
 The frameworks are installed inside the ``/root/repos`` directory.
 
@@ -54,7 +54,7 @@ We also provide a repository for building the Docker image from source. Please r
   
 .. _ahs-docker: https://github.com/pku-liang/ahs-docker
 
-The produced Docker image should be the same as the ``uvxiao/ahs-tutorial:date2025`` image.
+The produced Docker image should be the same as the ``uvxiao/ahs-tutorial:iseda2025`` image.
 
 Local Installation
 """""""""""""""""""""""""

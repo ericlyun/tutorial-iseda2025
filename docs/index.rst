@@ -6,7 +6,7 @@ Agile Hardware Specialization: A toolbox for Agile Chip Front-end Design
 .. note::
   **Important Updates!**
   
-  2025/04/06: *Upload slides* `(1) lecture <rsrc/ahs.final.pdf>`_ `(2) hands-on <rsrc/hands-on.final.pdf>`_
+  .. 2025/04/06: *Upload slides* `(1) lecture <rsrc/ahs.final.pdf>`_ `(2) hands-on <rsrc/hands-on.final.pdf>`_
    
 
 Overview
@@ -28,13 +28,15 @@ We provide both Docker and local setup. See :ref:`Environment Setup<environment 
 Schedule
 --------
 
-The tutorial will be held at Monday, 31 March 2025 (11:00 CEST - 12:30 CEST). 
+The tutorial will be held on Friday, 09 May 2025 (14:00 - 17:00 UTC+8). 
 
 Detailed Program
 """""""""""
 
-* Part 1: Lecture (1 hour), slide: `lecture <rsrc/ahs.final.pdf>`_ 
-* Part 2: Hands-on session (30 mins), slide: `hands-on <rsrc/hands-on.final.pdf>`_
+* Part 1: Lecture (1 hour) 
+.. , slide: `lecture <rsrc/ahs.final.pdf>`_ 
+* Part 2: Hands-on session (30 mins) 
+.. , slide: `hands-on <rsrc/hands-on.final.pdf>`_
   
 
 Repos and Publications

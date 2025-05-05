@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agile Hardware Specialization: A toolbox for Agile Chip Front-end Design &mdash; tutorial-iseda2025 1.2024-preview documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" type="text/css" href="_static/css/toggle.css?v=029c1802" />
+
+  
+    <link rel="shortcut icon" href="_static/logo-32x32.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=85c531d4"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/js/toggle.js?v=e1b5a5a1"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Handout" href="handout/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            tutorial-iseda2025
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="handout/index.html">Handout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instructions/index.html">Tutorial Instructions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">tutorial-iseda2025</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Agile Hardware Specialization: A toolbox for Agile Chip Front-end Design</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/ericlyun//blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="agile-hardware-specialization-a-toolbox-for-agile-chip-front-end-design">
+<h1>Agile Hardware Specialization: A toolbox for Agile Chip Front-end Design<a class="headerlink" href="#agile-hardware-specialization-a-toolbox-for-agile-chip-front-end-design" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Important Updates!</strong></p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Compared to software design, hardware design is more expensive and time-consuming. This is partly because software community has developed a rich set of modern tools to help software programmers to get projects started and iterated easily and quickly. However, the tools are seriously antiquated and lacking for hardware design. Modern digital chips are still designed manually using hardware description language such as Verilog or VHDL, which requires low-level and tedious programming, debugging, and tuning. In this tutorial, we will introduce Agile Hardware Specialization (AHS) : A toolbox for Agile Chip Front-end Design.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/tutorial-overview.png"><img alt="_images/tutorial-overview.png" src="_images/tutorial-overview.png" style="width: 450pt;" />
+</a>
+</figure>
+<p>The tutorial will highlight the methodology and open source tools in AHS for both chip design and verification. From the design perspective, AHS present two ways that use different programming interfaces and target different scenarios, including; 1) a multi-level hardware intermediate representation based high-level synthesis flow, which uses C and C++ as the programming language; 2) an embedded hardware description language, which uses Rust as the programming language. These two different methodologies exhibit different trade-offs in productivity and PPA (performance, power, and area) for chip design. From the verification perspective, we will present agile simulation and debugging tools, which can check the functional and performance behaviors of the hardware. The attendees will learn the methodology, design automation fundamentals, and software tools of AHS.</p>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h2>
+<p>We provide both Docker and local setup. See <a class="reference internal" href="handout/handout.html#environment-setup"><span class="std std-ref">Environment Setup</span></a> page for details.</p>
+</section>
+<section id="schedule">
+<h2>Schedule<a class="headerlink" href="#schedule" title="Link to this heading"></a></h2>
+<p>The tutorial will be held on Friday, 09 May 2025 (14:00 - 17:00 UTC+8).</p>
+<section id="detailed-program">
+<h3>Detailed Program<a class="headerlink" href="#detailed-program" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Part 1: Lecture (1 hour)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Part 2: Hands-on session (30 mins)</p></li>
+</ul>
+</section>
+</section>
+<section id="repos-and-publications">
+<h2>Repos and Publications<a class="headerlink" href="#repos-and-publications" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Framework</p></th>
+<th class="head"><p>Repository</p></th>
+<th class="head"><p>Materials</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>POPA</p></td>
+<td><p><a class="reference external" href="https://github.com/pku-liang/popa/tree/mlir">pku-liang/popa</a></p></td>
+<td><p><a class="reference external" href="https://dl.acm.org/doi/10.1145/3626202.3637566">FPGA’24 Paper</a>, <a class="reference external" href="https://ieeexplore.ieee.org/document/10171577">FCCM’23 Paper</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hector</p></td>
+<td><p><a class="reference external" href="https://github.com/pku-liang/Hector/tree/tutorial-aspdac">pku-liang/Hector</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/10068908">ICCAD’22 Paper</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Hestia</p></td>
+<td><p><a class="reference external" href="https://github.com/pku-liang/hestia/tree/main">pku-liang/hestia</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/10764625">MICRO’24 Paper</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cement</p></td>
+<td><p><a class="reference external" href="https://github.com/pku-liang/Cement/tree/cmt2">pku-liang/Cement</a></p></td>
+<td><p><a class="reference external" href="https://dl.acm.org/doi/10.1145/3626202.3637561">FPGA’24 Paper</a>, <a class="reference external" href="https://crates.io/crates/cmtrs">Crates.io Package</a>, <a class="reference external" href="https://docs.rs/cmtrs/latest/cmtrs/">Documentation</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Khronos (ksim)</p></td>
+<td><p><a class="reference external" href="https://github.com/pku-liang/ksim/tree/aspdac24-tutorial">pku-liang/ksim</a></p></td>
+<td><p><a class="reference external" href="https://dl.acm.org/doi/10.1145/3613424.3614301">MICRO’23 Paper</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="handout/index.html">Handout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="handout/handout.html">Handout Materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="handout/handout.html#environment-setup">Environment Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handout/handout.html#reading-materials">Reading Materials</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="instructions/index.html">Tutorial Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instructions/cement.html">Cement instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="instructions/cement.html#cement-example-contents">Cement Example Contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instructions/cement.html#running-cement-examples">Running Cement Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instructions/cement.html#simulation-with-khronos">Simulation with Khronos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="instructions/khronos.html">Khronos instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="instructions/khronos.html#khronos-command-cheet-sheet">Khronos Command Cheet Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instructions/khronos.html#compilation-workflow-of-khronos">Compilation Workflow of Khronos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instructions/khronos.html#intermediate-representations-in-khronos">Intermediate Representations in Khronos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instructions/khronos.html#real-application-evaluation">Real Application Evaluation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="handout/index.html" class="btn btn-neutral float-right" title="Handout" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BSD-3-Clause License.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      
+      
+     <span class="fa fa-element">
+     <input class="container_toggle" type="checkbox" id="switch" name="mode">
+     <label for="switch"></label>
+     </span>
+      
+      v: master
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+      <dl>
+        <dt>Languages</dt>
+        
+           <strong> 
+          <dd><a href="//en/master/">en</a></dd>
+           </strong> 
+        
+      </dl>
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+           <strong> 
+          <dd><a href="//en/master/">master</a></dd>
+           </strong> 
+        
+      </dl>
+      
+      
+      
+      <hr/>
+      Free document hosting provided by <a href="https://pages.github.com/">GitHub Pages</a>.
+ 
+    </div>
+  </div>
+
+ <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

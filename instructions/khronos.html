@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khronos instructions &mdash; tutorial-iseda2025 1.2024-preview documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/toggle.css?v=029c1802" />
+
+  
+    <link rel="shortcut icon" href="../_static/logo-32x32.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=85c531d4"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/toggle.js?v=e1b5a5a1"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Cement instructions" href="cement.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tutorial-iseda2025
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../handout/index.html">Handout</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial Instructions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cement.html">Cement instructions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Khronos instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#khronos-command-cheet-sheet">Khronos Command Cheet Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compilation-workflow-of-khronos">Compilation Workflow of Khronos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intermediate-representations-in-khronos">Intermediate Representations in Khronos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-application-evaluation">Real Application Evaluation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tutorial-iseda2025</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tutorial Instructions</a></li>
+      <li class="breadcrumb-item active">Khronos instructions</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/ericlyun//blob/master/docs/instructions/khronos.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="khronos-instructions">
+<h1>Khronos instructions<a class="headerlink" href="#khronos-instructions" title="Link to this heading"></a></h1>
+<p>Khronos is an RTL simulator with cross cycle optimization.
+It fuses some redundant registers to reduce memory access, allowing better memory locality and RTL simulation speedup.</p>
+<p>Khronos takes <code class="docutils literal notranslate"><span class="pre">FIRRTL</span></code> and c++ testbench as its input, generating executable simulator as output.
+The following picture gives where khronos is in the AHS workflow:</p>
+<a class="reference internal image-reference" href="../_images/khronos-flow.png"><img alt="Khronos Workflow" src="../_images/khronos-flow.png" style="width: 800px;" />
+</a>
+<section id="khronos-command-cheet-sheet">
+<h2>Khronos Command Cheet Sheet<a class="headerlink" href="#khronos-command-cheet-sheet" title="Link to this heading"></a></h2>
+<p>Compilation Flow:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>firtool-ksim<span class="w"> </span>--ir-hw<span class="w"> </span><span class="nv">$name</span>.fir<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.mlir
+ksim<span class="w"> </span><span class="nv">$name</span>.mlir<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.ll<span class="w"> </span>--out-header<span class="o">=</span><span class="nv">$name</span>.h
+llc-ksim<span class="w"> </span>-O2<span class="w"> </span>--filetype<span class="o">=</span>obj<span class="w"> </span><span class="nv">$name</span>.ll<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.o
+clang++<span class="w"> </span>-O2<span class="w"> </span><span class="nv">$name</span>.o<span class="w"> </span><span class="nv">$name</span>.cpp<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>
+</pre></div>
+</div>
+<p>Generate Example Driver:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span><span class="nv">$name</span>.mlir<span class="w"> </span>--out-driver<span class="o">=</span><span class="nv">$name</span>.cpp<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.ll
+</pre></div>
+</div>
+<p>Generate Intermediate Representations</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span><span class="nv">$name</span>.mlir<span class="w"> </span>--out<span class="o">=</span>flattened<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.flattened.mlir
+ksim<span class="w"> </span><span class="nv">$name</span>.mlir<span class="w"> </span>--out<span class="o">=</span>fused<span class="w">     </span>-o<span class="w"> </span><span class="nv">$name</span>.fused.mlir
+ksim<span class="w"> </span><span class="nv">$name</span>.fused.mlir<span class="w"> </span>--in<span class="o">=</span>fused<span class="w"> </span>--out<span class="o">=</span>low<span class="w"> </span>-o<span class="w"> </span><span class="nv">$name</span>.low.mlir
+</pre></div>
+</div>
+</section>
+<section id="compilation-workflow-of-khronos">
+<h2>Compilation Workflow of Khronos<a class="headerlink" href="#compilation-workflow-of-khronos" title="Link to this heading"></a></h2>
+<p>The compilation workflow of Khronos is shown in the following figure.
+Khronos core compiler <code class="docutils literal notranslate"><span class="pre">ksim</span></code> takes CIRCT IR as input, therefore, we need to convert the FIRRTL file to CIRCT IR first.
+We use firtool (from CIRCT) to translate <code class="docutils literal notranslate"><span class="pre">.fir</span></code> (FIRRTL) file into <code class="docutils literal notranslate"><span class="pre">.mlir</span></code> (CIRCT IR) file.
+Khronos will take the <code class="docutils literal notranslate"><span class="pre">.mlir</span></code> file, generating testbench header <code class="docutils literal notranslate"><span class="pre">.h</span></code> and llvm ir <code class="docutils literal notranslate"><span class="pre">.ll</span></code>.
+The former contains all IO declarations, while the latter contains the logics for simulation.
+Finally, we use <code class="docutils literal notranslate"><span class="pre">llc</span></code> and <code class="docutils literal notranslate"><span class="pre">clang++</span></code> to compile and link the testbench and build an executable simulator.</p>
+<a class="reference internal image-reference" href="../_images/khronos-compilation-flow.png"><img alt="Khronos Workflow" src="../_images/khronos-compilation-flow.png" style="width: 400px;" />
+</a>
+<p>The following instructions gives a simple example to run the overall khronos workflow.</p>
+<p>Prepare the example FIRRTL file, <a class="reference external" href="../rsrc/khronos/simplefir.fir">simplefir.fir</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="n">SimpleFIR</span><span class="p">:</span>
+  <span class="n">module</span> <span class="n">SimpleFIR</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="n">clock</span><span class="p">:</span> <span class="n">Clock</span>
+    <span class="nb">input</span> <span class="n">reset</span><span class="p">:</span> <span class="n">UInt</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span>
+    <span class="nb">input</span> <span class="ow">in</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span>
+    <span class="n">output</span> <span class="nb">sum</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span>
+
+    <span class="n">reg</span> <span class="n">r1</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">clock</span>
+    <span class="n">reg</span> <span class="n">r2</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">clock</span>
+    <span class="n">reg</span> <span class="n">r3</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">clock</span>
+    <span class="n">r1</span> <span class="o">&lt;=</span> <span class="ow">in</span>
+    <span class="n">r2</span> <span class="o">&lt;=</span> <span class="n">r1</span>
+    <span class="n">r3</span> <span class="o">&lt;=</span> <span class="n">r2</span>
+
+    <span class="nb">sum</span> <span class="o">&lt;=</span> <span class="n">add</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="ow">in</span><span class="p">,</span> <span class="n">r1</span><span class="p">),</span> <span class="n">add</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">r3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">firtool-ksim</span></code> to translate it into a CIRCT core IR:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>firtool-ksim<span class="w"> </span>simplefir.fir<span class="w"> </span>--ir-hw<span class="w"> </span>-o<span class="w"> </span>simplefir.mlir
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">ksim</span></code> to compile it and generate cpp header for testbench:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span>simplefir.mlir<span class="w"> </span>--out-header<span class="o">=</span>simplefir.h<span class="w"> </span>-o<span class="w"> </span>simplefir.ll
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">ksim</span></code> to generate a driver, and modify it:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span>simplefir.mlir<span class="w"> </span>--out-driver<span class="o">=</span>simplefir.cpp<span class="w"> </span>-o<span class="w"> </span>simplefir.ll
+</pre></div>
+</div>
+<p>Add peek poke statement in <code class="docutils literal notranslate"><span class="pre">simplefir.cpp</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">reset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimpleFIR_reset_ahead</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SimpleFIR</span><span class="p">();</span>
+<span class="w">        </span><span class="n">reset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">system_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">        </span><span class="c1">// !!! update here</span>
+<span class="w">        </span><span class="n">SimpleFIR</span><span class="p">();</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;cycle=%d in=%d sum=%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span><span class="w"> </span><span class="c1">// !!! update here</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">system_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Compile and link all resources:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>llc-ksim<span class="w"> </span>--filetype<span class="o">=</span>obj<span class="w"> </span>simplefir.ll<span class="w"> </span>-o<span class="w"> </span>simplefir.o
+clang++<span class="w"> </span>simplefir.cpp<span class="w"> </span>simplefir.o<span class="w"> </span>-o<span class="w"> </span>simplefir
+</pre></div>
+</div>
+<p>Run the simulator for 10 cycles:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./simplefir<span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+<p>Here is the expected output:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./simplefir<span class="w"> </span><span class="m">10</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">3</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">6</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">14</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">6</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">6</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">18</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">7</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">7</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">22</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">26</span>
+<span class="nv">cycle</span><span class="o">=</span><span class="m">9</span><span class="w"> </span><span class="k">in</span><span class="o">=</span><span class="m">9</span><span class="w"> </span><span class="nv">sum</span><span class="o">=</span><span class="m">30</span>
+<span class="m">112</span><span class="w">                  </span><span class="c1"># this is the elapsed time</span>
+</pre></div>
+</div>
+</section>
+<section id="intermediate-representations-in-khronos">
+<h2>Intermediate Representations in Khronos<a class="headerlink" href="#intermediate-representations-in-khronos" title="Link to this heading"></a></h2>
+<p>Khronos has many internal steps with multiple IR forms to translate and optimize the RTL design.
+In this section, we will introduce each level of Khronos IR. The following help command of Khronos shows its IRs:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span>--help
+......
+--in<span class="o">=</span>&lt;value&gt;<span class="w">    </span>-<span class="w"> </span>Input<span class="w"> </span>file<span class="w"> </span><span class="nb">type</span>
+--out<span class="o">=</span>&lt;value&gt;<span class="w">   </span>-<span class="w"> </span>Output<span class="w"> </span>file<span class="w"> </span><span class="nb">type</span>
+<span class="w">    </span><span class="o">=</span>core<span class="w">         </span>-<span class="w">   </span>Default<span class="w"> </span>circt<span class="w"> </span>core<span class="w"> </span><span class="nv">IR</span>
+<span class="w">    </span><span class="o">=</span>flattened<span class="w">    </span>-<span class="w">   </span>Ksim<span class="w"> </span>high<span class="w"> </span>level<span class="w"> </span><span class="nv">ir</span>
+<span class="w">    </span><span class="o">=</span>fused<span class="w">        </span>-<span class="w">   </span>Ksim<span class="w"> </span>fused<span class="w"> </span><span class="nv">ir</span>
+<span class="w">    </span><span class="o">=</span>low<span class="w">          </span>-<span class="w">   </span>KSim<span class="w"> </span>low<span class="w"> </span>level<span class="w"> </span><span class="nv">ir</span>
+<span class="w">    </span><span class="o">=</span>llvm<span class="w">         </span>-<span class="w">   </span>LLVM<span class="w"> </span><span class="nv">dialect</span>
+<span class="w">    </span><span class="o">=</span>llvmir<span class="w">       </span>-<span class="w">   </span>LLVM<span class="w"> </span>IR
+</pre></div>
+</div>
+<p>These IR takes important role during the Khronos compilation flow, the corresponding relationship is demonstrated in the following figure:</p>
+<a class="reference internal image-reference" href="../_images/khronos-ir.png"><img alt="Khronos Workflow" src="../_images/khronos-ir.png" style="width: 800px;" />
+</a>
+<p>The following instructions gives a simple example to expose the internal IR from khronos.</p>
+<p>The example FIRRTL file, <a class="reference external" href="../rsrc/khronos/tree.fir">tree.fir</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="n">Tree</span><span class="p">:</span>
+  <span class="n">module</span> <span class="n">Tree</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="n">clock</span><span class="p">:</span> <span class="n">Clock</span>
+    <span class="nb">input</span> <span class="n">reset</span><span class="p">:</span> <span class="n">UInt</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span>
+    <span class="nb">input</span> <span class="ow">in</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">output</span> <span class="nb">sum</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span>
+
+    <span class="n">reg</span> <span class="n">r0</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">clock</span>
+    <span class="n">reg</span> <span class="n">r1</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">clock</span>
+    <span class="n">reg</span> <span class="n">r2</span><span class="p">:</span> <span class="n">SInt</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">clock</span>
+    <span class="n">r0</span> <span class="o">&lt;=</span> <span class="n">add</span><span class="p">(</span><span class="ow">in</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="ow">in</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">r1</span> <span class="o">&lt;=</span> <span class="n">add</span><span class="p">(</span><span class="ow">in</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">r2</span> <span class="o">&lt;=</span> <span class="n">add</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span> <span class="n">r1</span><span class="p">)</span>
+    <span class="nb">sum</span> <span class="o">&lt;=</span> <span class="n">r2</span>
+</pre></div>
+</div>
+<p>First, translate the fir file to mlir file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>firtool-ksim<span class="w"> </span>tree.fir<span class="w"> </span>--ir-hw<span class="w"> </span>-o<span class="w"> </span>tree.mlir
+</pre></div>
+</div>
+<p>Show the flattened IR:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span>tree.mlir<span class="w"> </span>--out<span class="o">=</span>flattened<span class="w"> </span>-o<span class="w"> </span>tree.flattened.mlir
+</pre></div>
+</div>
+<p>Run state fusion algorithm in <code class="docutils literal notranslate"><span class="pre">ksim</span></code> and show the result:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span>tree.flattened.mlir<span class="w"> </span>--in<span class="o">=</span>flattened<span class="w"> </span>--out<span class="o">=</span>fused<span class="w"> </span>-o<span class="w"> </span>tree.fused.mlir
+</pre></div>
+</div>
+<p>Lower the fused module to queue ir in ksim:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ksim<span class="w"> </span>tree.fused.mlir<span class="w"> </span>--in<span class="o">=</span>fused<span class="w"> </span>--out<span class="o">=</span>low<span class="w"> </span>-o<span class="w"> </span>tree.low.mlir
+</pre></div>
+</div>
+</section>
+<section id="real-application-evaluation">
+<h2>Real Application Evaluation<a class="headerlink" href="#real-application-evaluation" title="Link to this heading"></a></h2>
+<p>In this section, we run Khronos on a mediam level design and demonstrate its performance.
+Since a full compilation is very time consuming, we extract only the core <code class="docutils literal notranslate"><span class="pre">Mesh</span></code> structure in Gemmini as input.</p>
+<p>The input file <code class="docutils literal notranslate"><span class="pre">Mesh6x6.fir</span></code> can be downloaded at <a class="reference external" href="../rsrc/khronos/Mesh6x6.fir">Mesh6x6.fir</a>.
+The Verilator testbench file <code class="docutils literal notranslate"><span class="pre">Mesh6x6.tb.cpp</span></code> can be downloaded at <a class="reference external" href="../rsrc/khronos/Mesh6x6.tb.cpp">Mesh6x6.tb.cpp</a>.</p>
+<p>Use the following commands to run Khronos:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>firtool-ksim<span class="w"> </span>Mesh6x6.fir<span class="w"> </span>--ir-hw<span class="w"> </span>-o<span class="w"> </span>Mesh6x6.mlir
+ksim<span class="w"> </span>Mesh6x6.mlir<span class="w"> </span>--out-header<span class="o">=</span>Mesh6x6.h<span class="w"> </span>--out-driver<span class="o">=</span>Mesh6x6.cpp<span class="w"> </span>-o<span class="w"> </span>Mesh6x6.ll
+llc-ksim<span class="w"> </span>-O2<span class="w"> </span>--relocation-model<span class="o">=</span>dynamic-no-pic<span class="w"> </span>--filetype<span class="o">=</span>obj<span class="w"> </span>Mesh6x6.ll<span class="w"> </span>-o<span class="w"> </span>Mesh6x6.ksim.o
+clang++<span class="w"> </span>-O2<span class="w"> </span>Mesh6x6.cpp<span class="w"> </span>Mesh6x6.ksim.o<span class="w"> </span>-o<span class="w"> </span>Mesh6x6
+</pre></div>
+</div>
+<p>Use the following commands to run Verilator:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>firtool-ksim<span class="w"> </span>Mesh6x6.fir<span class="w"> </span>-o<span class="w"> </span>Mesh6x6.v
+verilator<span class="w"> </span>--cc<span class="w"> </span>--exe<span class="w"> </span>--build<span class="w"> </span>-CFLAGS<span class="w"> </span><span class="s2">&quot;-O2&quot;</span><span class="w"> </span>Mesh6x6.v<span class="w"> </span>Mesh6x6.tb.cpp
+</pre></div>
+</div>
+<p>Run ksim and verilator to compare their performance:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./obj_dir/VMesh6x6<span class="w"> </span><span class="m">100000</span>
+./Mesh6x6<span class="w"> </span><span class="m">100000</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cement.html" class="btn btn-neutral float-left" title="Cement instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BSD-3-Clause License.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      
+      
+     <span class="fa fa-element">
+     <input class="container_toggle" type="checkbox" id="switch" name="mode">
+     <label for="switch"></label>
+     </span>
+      
+      v: master
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+      <dl>
+        <dt>Languages</dt>
+        
+           <strong> 
+          <dd><a href="//en/master/">en</a></dd>
+           </strong> 
+        
+      </dl>
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+           <strong> 
+          <dd><a href="//en/master/">master</a></dd>
+           </strong> 
+        
+      </dl>
+      
+      
+      
+      <hr/>
+      Free document hosting provided by <a href="https://pages.github.com/">GitHub Pages</a>.
+ 
+    </div>
+  </div>
+
+ <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

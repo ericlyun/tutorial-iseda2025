@@ -28,7 +28,7 @@ python3 -m pip list
   
 pwd
 ls -lah
-git config --global --add safe.directory /__w/tutorial-date2025/tutorial-date2025
+git config --global --add safe.directory /__w/tutorial-iseda2025/tutorial-iseda2025
 export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
   
 # make a new temp dir which will be our GitHub Pages docroot

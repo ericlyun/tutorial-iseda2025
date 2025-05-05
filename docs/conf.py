@@ -17,7 +17,7 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-project = 'tutorial-date2025'
+project = 'tutorial-iseda2025'
 copyright = '2020, BSD-3-Clause License'
 author = 'Massimo DiPierro'
 
